@@ -1,0 +1,22 @@
+<div style="display: flex; flex-direction: row;">
+  <div>
+    <td-categories></td-categories>
+  </div>
+<div class="apps-list">
+  <td-search [listToSearch]="list" (results)="getSearchResults($event)"></td-search>
+  <td-app-item [app]="app" *ngFor="let app of appsToShow"></td-app-item>
+
+  <ul class="pagination">
+    <li><a href="#" (click)="changePage('-')">&lt;</a></li>
+    <li
+      *ngFor="let page of counter(pages.total); let i = index"
+      [ngClass]="{ active: pages.current === i }"
+    >
+      <a href="#" (click)="changePage(i)">
+        {{ i + 1 }}
+      </a>
+    </li>
+    <li><a href="#" (click)="changePage('+')">&gt;</a></li>
+  </ul>
+</div>
+</div>

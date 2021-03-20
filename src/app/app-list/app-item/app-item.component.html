@@ -1,0 +1,24 @@
+<div class="app-item">
+  <div class="box-info">
+    <div class="box-info--content">
+      <div class="description">
+        <h1>{{ app.name }}</h1>
+        <p>{{ app.description }}</p>
+      </div>
+      <div class="tags">
+        <span *ngFor="let cat of app.categories; let isLast = last">
+          {{ cat }}{{ isLast ? "" : " / " }}
+        </span>
+      </div>
+    </div>
+    <div class="box-info--footer">
+      <ul>
+        <li *ngFor="let sub of app.subscriptions">
+          <span>{{ sub.name }}</span>
+          <h3 *ngIf="sub.price > 0">{{ sub.price/100 | number: '0.2' }}<sup>€</sup></h3>
+          <h3 *ngIf="sub.price === 0">Free</h3>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

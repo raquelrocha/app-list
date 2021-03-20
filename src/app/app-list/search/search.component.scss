@@ -1,0 +1,19 @@
+input {
+  font-size: 1rem;
+  font-weight: 300;
+  background-clip: padding-box;
+  transition: all .2s ease;
+  outline: 0;
+  -webkit-appearance: none;
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  border: 1px solid var(--gray);
+  margin-bottom: 2rem;
+}
+
+input:hover, input:focus {
+  transition: all .2s ease;
+  cursor: auto;
+  border: 1px solid var(--teal);
+}
