@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'td-categories',
@@ -9,16 +10,18 @@ export class CategoriesComponent implements OnInit {
   @Input()
   categories: Set<String>;
 
-  @Output()
-  selectCategory: EventEmitter<String> = new EventEmitter();
-
   selectedCat = '';
-  constructor() {}
+  constructor(private readonly appService: AppService) {}
 
   ngOnInit(): void {}
 
   filterBy(category: string) {
-    this.selectCategory.emit(category);
-    this.selectedCat = category;
+    if (this.selectedCat === category) {
+      this.selectedCat = '';
+    } else {
+      this.selectedCat = category;
+    }
+
+    this.appService.filterAppsByCategory(this.selectedCat);
   }
 }

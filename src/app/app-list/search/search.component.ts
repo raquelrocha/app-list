@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'td-search',
@@ -6,21 +7,21 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  @Input()
-  listToSearch: any[];
+  @ViewChild('searchInput') searchInput: ElementRef;
 
-  @Output()
-  results: EventEmitter<any[]> = new EventEmitter();
-
-  constructor() {}
+  showClearBtn = false;
+  constructor(private readonly appService: AppService) {}
 
   ngOnInit(): void {}
 
   search(event): void {
-    this.results.emit(
-      this.listToSearch.filter((app) => {
-        return app.name.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1;
-      })
-    );
+    this.showClearBtn = true;
+    this.appService.filterAppsByName(event.target.value);
+  }
+
+  clearSearchInput() {
+    this.searchInput.nativeElement.value = '';
+    this.search({ target: { value: '' } });
+    this.showClearBtn = false;
   }
 }

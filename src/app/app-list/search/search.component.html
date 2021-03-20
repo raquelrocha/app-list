@@ -1,1 +1,4 @@
-<input type="text" placeholder="Search by App" (input)="search($event)"/>
+<div class="search-input">
+  <input type="text" #searchInput placeholder="Search by App" (input)="search($event)" />
+  <span class="search-clear" *ngIf="showClearBtn" (click)="clearSearchInput()">Clear</span>
+</div>

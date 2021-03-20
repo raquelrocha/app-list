@@ -3,19 +3,22 @@ import { Observable } from 'rxjs';
 
 import { Component } from '@angular/core';
 
+import { AppService } from './app.service';
+
 @Component({
   selector: 'td-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  apps: any;
-
   private appsUrl = 'assets/apps.json';
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly appService: AppService
+  ) {
     this.getJSON().subscribe((data) => {
-      this.apps = data;
+      this.appService.createAppList(data);
     });
   }
 

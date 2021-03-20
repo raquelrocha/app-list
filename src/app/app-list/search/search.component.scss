@@ -17,3 +17,21 @@ input:hover, input:focus {
   cursor: auto;
   border: 1px solid var(--teal);
 }
+
+.search-input {
+  position: relative;
+}
+
+.search-clear {
+  position: absolute;
+  z-index: 1000;
+  top: 16px;
+  right: 20px;
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--teal);
+
+  &:hover {
+    color: var(--dark-gray);
+  }
+}
