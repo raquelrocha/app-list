@@ -1,6 +1,6 @@
 <div style="display: flex; flex-direction: row;">
   <div>
-    <td-categories></td-categories>
+    <td-categories [categories]="categories" (selectCategory)="getCatResults($event)"></td-categories>
   </div>
 <div class="apps-list">
   <td-search [listToSearch]="list" (results)="getSearchResults($event)"></td-search>

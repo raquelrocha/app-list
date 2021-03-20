@@ -1,15 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'td-categories',
   templateUrl: './categories.component.html',
-  styleUrls: ['./categories.component.scss']
+  styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent implements OnInit {
+  @Input()
+  categories: Set<String>;
 
-  constructor() { }
+  @Output()
+  selectCategory: EventEmitter<String> = new EventEmitter();
 
-  ngOnInit(): void {
+  selectedCat = '';
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  filterBy(category: string) {
+    this.selectCategory.emit(category);
+    this.selectedCat = category;
   }
-
 }

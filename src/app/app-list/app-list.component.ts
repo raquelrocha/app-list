@@ -18,6 +18,8 @@ export class AppListComponent implements OnChanges {
     contentPerPage: 3
   };
 
+  categories = new Set();
+
   counter = Array;
   constructor() {}
 
@@ -26,6 +28,7 @@ export class AppListComponent implements OnChanges {
       this.apps = [...this.list];
       this.pages.total = Math.ceil(this.apps.length / 3);
       this.changePage(0);
+      this.getCategories();
     }
   }
 
@@ -50,8 +53,12 @@ export class AppListComponent implements OnChanges {
     this.changePage(0);
   }
 
-  private getLength() {
-    return this.apps.length >= 3 ? this.apps.length / 3 : 3;
+  getCatResults(event): void {
+    this.apps = [...this.list].filter((app) => {
+      return app.categories.indexOf(event) > -1;
+    })
+    this.pages.total = Math.ceil(this.apps.length / 3);
+    this.changePage(0);
   }
 
   private sortAppsBySubsTotalPrice() {
@@ -66,5 +73,9 @@ export class AppListComponent implements OnChanges {
     return app.subscriptions
       .map((subs) => subs.price)
       .reduce((acc, current) => acc + current);
+  }
+
+  private getCategories() {
+    this.apps.forEach(app => app.categories.forEach(cat => this.categories.add(cat)));
   }
 }

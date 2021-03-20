@@ -1,9 +1,7 @@
 <h2>Categories</h2>
 
 <ul class="menu">
-  <li class="active"><a href="#">Channels</a></li>
-  <li><a href="#">Dialer</a></li>
-  <li><a href="#">Optimization</a></li>
-  <li><a href="#">Reporting</a></li>
-  <li><a href="#">Voice Analytics</a></li>
+  <li *ngFor="let cat of categories" (click)="filterBy(cat)"
+    [ngClass]="{active: selectedCat === cat}"
+  ><a href="#">{{cat }}</a></li>
 </ul>
