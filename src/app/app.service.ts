@@ -45,7 +45,6 @@ export class AppService {
   }
 
   filterAppsByName(name, list?: any[]) {
-    console.log(this.categoryFilter);
     let listToFilter = !!list ? list : [...this.initialList];
     this.nameFilter = undefined;
     if (!!this.categoryFilter) {
