@@ -19,6 +19,8 @@ input:hover, input:focus {
 }
 
 .search-input {
+  display: flex;
+  text-align: center;
   position: relative;
 }
 

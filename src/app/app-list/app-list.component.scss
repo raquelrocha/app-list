@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
 .apps-list {
   flex: 1;
   order: 2;
@@ -22,7 +27,7 @@
 }
 
 .pagination li {
-  margin-right: .25rem;
+  margin-right: 0.25rem;
 }
 
 .pagination li:last-child {
@@ -32,13 +37,13 @@
 .pagination li a {
   transition: all 0.3s ease-in-out;
   color: var(--gray-dark);
-  padding: .375rem .4375rem;
+  padding: 0.375rem 0.4375rem;
   text-decoration: none;
 }
 
 .pagination li a:hover {
   background: var(--teal);
-  color: var(--white)
+  color: var(--white);
 }
 
 .pagination li a:focus {

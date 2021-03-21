@@ -1,7 +1,13 @@
-<h2>Categories</h2>
+<div class="categories">
+  <h2>Categories</h2>
 
-<ul class="menu">
-  <li *ngFor="let cat of categories" (click)="filterBy(cat)"
-    [ngClass]="{active: selectedCat === cat}"
-  ><a href="#">{{cat }}</a></li>
-</ul>
+  <ul class="menu">
+    <li
+      *ngFor="let cat of categories"
+      (click)="filterBy(cat)"
+      [ngClass]="{ active: selectedCat === cat }"
+    >
+      <a href="#">{{ cat }}</a>
+    </li>
+  </ul>
+</div>

@@ -20,17 +20,19 @@ Then i implemented the Categories component, which shows the categories list (cr
 
 Found the 1st problem here, if the user inputs some value in the search (lets say 'Text'), the list shows only apps with the name 'Text'. But then, if the user decided to click on the Category 'Voice Analytics', the app would ignore completly the search value and show apps with the category 'Voice Analytics' (even if the app name didnt contain 'Text'). I decided to add this to do the TO DO list and then decide a possible solution for this (either reset the search everytime a category is clicked, or filter category+search value together).
 
-After this, all the requirements were done (show apps orders by subscription total value, pagination, search and category filtering).
+After this, all the requirements were done (show apps ordered by subscription total value, pagination, search and category filtering).
 
 Since more than one component was using the app-list data, the project had multiple Inputs/Outputs to control its change.
-Therefore, i decided to create a 'central' service which would contain a subscriber with the apps list and would change it (filterByCategory, filterByName).
-With this, only the AppList component would need to subscribe to the AppList in that service, and everytime it was modified, the AppList component would update its view.
+Therefore, i decided to create a 'central' service which would contain a subscribable object with the apps list and would also be the one to change it (filterByCategory, filterByName).
+With this, only the AppList component would need to subscribe to the AppList object of that service, and everytime it was modified (either by the Search or Category component when invoking the respetive filter methods), the AppList component would update its view.
 
 Now, what remained on the TO DO list was the filter by category&search.
 First, i created a Clear option in the search input - to allow the user to clear the search (since it allowed the user to clear the Category filter, it should also allow the search with a more clear action instead of just deleting the text).
 
 Then i modified the filter methods in the App Service.
-In the filter by category, it verifies if there is a previous name value and filters first by that, then uses the new list (filtered by name value) and uses it to filter by category (same, in reverse, for the filter by value).
+In the filter by category, it verifies if there is a previous value for the Name and filters first by that (invoking the filterByName), then uses the updated list to filter by category (same, in reverse, for the filter by value).
+
+After this was done, i dedicated the rest of the time to improvements (style and unit tests).
 
 ## Run project
 

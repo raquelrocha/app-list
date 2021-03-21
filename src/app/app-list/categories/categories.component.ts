@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { AppService } from 'src/app/app.service';
 })
 export class CategoriesComponent implements OnInit {
   @Input()
-  categories: Set<String>;
+  categories: Set<string>;
 
   selectedCat = '';
   constructor(private readonly appService: AppService) {}

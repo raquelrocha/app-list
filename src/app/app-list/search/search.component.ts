@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   search(event): void {
-    this.showClearBtn = true;
+    this.showClearBtn = !!event.target.value;
     this.appService.filterAppsByName(event.target.value);
   }
 

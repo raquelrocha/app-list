@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
-  appList: BehaviorSubject<any[]>;
+  private appList: BehaviorSubject<any[]>;
 
   private initialList: any[];
 
@@ -24,7 +24,7 @@ export class AppService {
   }
 
   getAppList() {
-    return this.sortAppsBySubsTotalPrice(this.appList);
+    return this.appList;
   }
 
   filterAppsByCategory(category, list?: any[]) {
@@ -65,11 +65,16 @@ export class AppService {
     return [...apps].sort((app1, app2) => {
       if (this.getSubsTotal(app1) < this.getSubsTotal(app2)) {
         return -1;
-      } else return 1;
+      } else {
+        return 1;
+      }
     });
   }
 
   private getSubsTotal(app): number {
+    if (!app.subscriptions) {
+      return 0;
+    }
     return app.subscriptions
       .map((subs) => subs.price)
       .reduce((acc, current) => acc + current);

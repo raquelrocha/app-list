@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { AppService } from '../app.service';
   templateUrl: './app-list.component.html',
   styleUrls: ['./app-list.component.scss'],
 })
-export class AppListComponent {
+export class AppListComponent implements OnInit {
   apps: any[];
 
   appsToShow: any[];
@@ -19,8 +19,10 @@ export class AppListComponent {
   categories = new Set();
 
   counter = Array;
-  constructor(private readonly appService: AppService) {
-    this.appService.appList.subscribe((list) => {
+  constructor(private readonly appService: AppService) {}
+
+  ngOnInit() {
+    this.appService.getAppList().subscribe((list) => {
       this.apps = list;
       this.pages.total = Math.ceil(this.apps.length / 3);
       this.changePage(0);

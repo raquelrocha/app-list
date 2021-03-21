@@ -1,3 +1,9 @@
+.categories {
+  text-align: left;
+  flex: 0;
+  order: 1;
+  padding: 0 15px;
+}
 
 .menu .active a {
   color: var(--teal);
