@@ -2,6 +2,15 @@
 
 This exercise is part of Talkdesk's recruitment process, implemented by Raquel Rocha.
 
+
+## Run project
+
+To run this project, simply type `ng serve` or `npm run start`. Navigate to `http://localhost:4200/`. 
+
+## Running unit tests
+
+Run `ng test` or `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
 ## Description
 
 The user is able to see all the apps available. This apps are listed in pages, each page with 3 apps as its content.
@@ -32,14 +41,6 @@ First, i created a Clear option in the search input - to allow the user to clear
 Then i modified the filter methods in the App Service.
 In the filter by category, it verifies if there is a previous value for the Name and filters first by that (invoking the filterByName), then uses the updated list to filter by category (same, in reverse, for the filter by value).
 
-After this was done, i dedicated the rest of the time to improvements (style and unit tests).
-
-## Run project
-
-To run this project, simply type `ng serve` or `npm run start`. Navigate to `http://localhost:4200/`. 
-
-## Running unit tests
-
-Run `ng test` or `npm run tests` to execute the unit tests via [Karma](https://karma-runner.github.io).
+After this was done, i dedicated the rest of the time to improvements (match the given style and unit tests).
 
 
