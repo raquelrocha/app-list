@@ -5,14 +5,12 @@ import {
   TestBed,
   tick,
 } from '@angular/core/testing';
-import { MockComponents } from 'ng-mocks';
+import { MockComponent } from 'ng-mocks';
 import { BehaviorSubject } from 'rxjs';
 
-import { AppListComponent } from './app-list.component';
-import { CategoriesComponent } from '../categories/categories.component';
-import { SearchComponent } from '../search/search.component';
-import { AppService } from '../app.service';
 import { AppItemComponent } from './app-item/app-item.component';
+import { AppListComponent } from './app-list.component';
+import { AppService } from '../app.service';
 
 describe('AppListComponent', () => {
   let component: AppListComponent;
@@ -25,11 +23,7 @@ describe('AppListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppListComponent,
-        ...MockComponents(
-          SearchComponent,
-          CategoriesComponent,
-          AppItemComponent
-        ),
+        MockComponent(AppItemComponent)
       ],
       providers: [{ provides: AppService, useValue: spyGetList }],
     }).compileComponents();

@@ -4,11 +4,13 @@ import {
   HttpTestingController,
 } from '@angular/common/http/testing';
 import { of } from 'rxjs';
-import { MockComponent, MockProvider } from 'ng-mocks';
+import { MockComponents, MockProvider } from 'ng-mocks';
 
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { AppListComponent } from './app-list/app-list.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { SearchComponent } from './search/search.component';
 
 describe('AppComponent', () => {
   let httpMock: HttpTestingController;
@@ -17,9 +19,15 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        MockComponent(AppListComponent)
+        ...MockComponents(
+          AppListComponent,
+          CategoriesComponent,
+          SearchComponent
+        ),
       ],
-      imports: [HttpClientTestingModule],
+      imports: [
+        HttpClientTestingModule
+      ],
       providers: [
         MockProvider(AppService)
       ],
@@ -32,13 +40,19 @@ describe('AppComponent', () => {
 
   it('should create the app and retrieve the json file', () => {
     const appService = TestBed.inject(AppService);
-    const spyApp = spyOn(appService, 'createAppList').and.callFake(() => of({}));
+    const spyApp = spyOn(appService, 'createAppList').and.callFake(() =>
+      of({})
+    );
     expect(app).toBeTruthy();
 
-    const apps = [{ name: 'a' }, { name: 'b' }];
+    const apps = [
+      { name: 'a', categories: ['Optimization'] },
+      { name: 'b', categories: ['Channel'] },
+    ];
     const req = httpMock.expectOne('assets/apps.json');
     expect(req.request.method).toEqual('GET');
     req.flush(apps);
     expect(spyApp).toHaveBeenCalledWith(apps);
+    expect(app.categories).toEqual(new Set(['Channel', 'Optimization']));
   });
 });
