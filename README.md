@@ -5,7 +5,9 @@ This exercise is part of Talkdesk's recruitment process, implemented by Raquel R
 
 ## Run project
 
-To run this project, simply type `ng serve` or `npm run start`. Navigate to `http://localhost:4200/`. 
+Make sure you run `npm install` first.
+
+Then to run this project, simply run `ng serve` or `npm run start`. Navigate to `http://localhost:4200/`. 
 
 ## Running unit tests
 
