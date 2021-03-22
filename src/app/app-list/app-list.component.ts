@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AppService } from '../app.service';
 
 @Component({
@@ -16,7 +17,6 @@ export class AppListComponent implements OnInit {
     contentPerPage: 3,
   };
 
-  categories = new Set();
 
   counter = Array;
   constructor(private readonly appService: AppService) {}
@@ -26,7 +26,6 @@ export class AppListComponent implements OnInit {
       this.apps = list;
       this.pages.total = Math.ceil(this.apps.length / 3);
       this.changePage(0);
-      this.getCategories();
     });
   }
 
@@ -42,11 +41,5 @@ export class AppListComponent implements OnInit {
     } else if (change === '-' && this.pages.current > 0) {
       this.changePage(this.pages.current - 1);
     }
-  }
-
-  private getCategories() {
-    this.apps.forEach((app) =>
-      app.categories.forEach((cat) => this.categories.add(cat))
-    );
   }
 }

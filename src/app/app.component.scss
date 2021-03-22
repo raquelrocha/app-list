@@ -1,3 +1,11 @@
-.root {
+.nav-categories {
+  text-align: left;
+  flex: 0;
+  order: 1;
+}
 
+.apps-list {
+  flex: 1;
+  order: 2;
+  text-align: left;
 }

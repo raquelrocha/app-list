@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockProvider } from 'ng-mocks';
 
 import { SearchComponent } from './search.component';
-import { AppService } from '../../app.service';
+import { AppService } from '../app.service';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;

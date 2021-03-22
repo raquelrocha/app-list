@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i');
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,700i");
 
 :root {
-  --white: #FFFFFF;
+  --white: #ffffff;
   --black: #172241;
   --gray: #f4f7f6;
   --gray-dark: #6c7680;
   --teal: #4bc3c9;
 }
 
-
-body, html {
-  font-family: 'Roboto', sans-serif;
+body,
+html {
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
   line-height: 1.5;
   color: var(--black);
@@ -23,12 +23,11 @@ body, html {
   padding: 0;
 }
 
-
 ul {
   list-style-type: none;
 }
 
-p{
+p {
   color: var(--gray-dark);
 }
 
@@ -48,7 +47,7 @@ h2 {
 
 h3 {
   font-size: 1.5rem;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   font-weight: 300;
 }
 
@@ -57,6 +56,7 @@ h3 {
   flex-flow: row wrap;
   max-width: 1400px;
   margin: 2rem auto;
+  text-align: center;
 }
 
 .flex-container > * {

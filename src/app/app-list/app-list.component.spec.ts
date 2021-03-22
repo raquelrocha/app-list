@@ -6,11 +6,11 @@ import {
   tick,
 } from '@angular/core/testing';
 import { MockComponents } from 'ng-mocks';
-import { BehaviorSubject, of } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 import { AppListComponent } from './app-list.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { SearchComponent } from './search/search.component';
+import { CategoriesComponent } from '../categories/categories.component';
+import { SearchComponent } from '../search/search.component';
 import { AppService } from '../app.service';
 import { AppItemComponent } from './app-item/app-item.component';
 

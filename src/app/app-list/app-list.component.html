@@ -1,25 +1,16 @@
-<div class="container">
-  <div>
-    <td-categories [categories]="categories"></td-categories>
-  </div>
-  <div class="apps-list">
-    <td-search></td-search>
-    <div *ngIf="!!appsToShow.length">
-      <td-app-item [app]="app" *ngFor="let app of appsToShow"></td-app-item>
+<div *ngIf="!!appsToShow.length">
+  <td-app-item [app]="app" *ngFor="let app of appsToShow"></td-app-item>
 
-      <ul class="pagination">
-        <li><a href="#" (click)="changePage('-')">&lt;</a></li>
-        <li
-          *ngFor="let page of counter(pages.total); let i = index"
-          [ngClass]="{ active: pages.current === i }"
-        >
-          <a href="#" (click)="changePage(i)">
-            {{ i + 1 }}
-          </a>
-        </li>
-        <li><a href="#" (click)="changePage('+')">&gt;</a></li>
-      </ul>
-    </div>
-  </div>
+  <ul class="pagination">
+    <li><a  (click)="changePage('-')">&lt;</a></li>
+    <li
+      *ngFor="let page of counter(pages.total); let i = index"
+      [ngClass]="{ active: pages.current === i }"
+    >
+      <a  (click)="changePage(i)">
+        {{ i + 1 }}
+      </a>
+    </li>
+    <li><a  (click)="changePage('+')">&gt;</a></li>
+  </ul>
 </div>
-

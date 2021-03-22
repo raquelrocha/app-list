@@ -4,17 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppListModule } from './app-list/app-list.module';
-import { AppRoutingModule } from './app-routing.module';
+import { SearchComponent } from './search/search.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,
     AppListModule,
-    HttpClientModule,
-    AppRoutingModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

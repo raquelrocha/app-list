@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockProvider } from 'ng-mocks';
 
 import { CategoriesComponent } from './categories.component';
-import { AppService } from '../../app.service';
+import { AppService } from '../app.service';
 
 describe('CategoriesComponent', () => {
   let component: CategoriesComponent;

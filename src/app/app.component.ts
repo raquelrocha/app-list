@@ -11,6 +11,7 @@ import { AppService } from './app.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  categories = new Set();
   private appsUrl = 'assets/apps.json';
 
   constructor(
@@ -19,7 +20,17 @@ export class AppComponent {
   ) {
     this.getJSON().subscribe((data) => {
       this.appService.createAppList(data);
+      this.getCategories(data);
     });
+  }
+
+  private getCategories(data: any) {
+    const arr = [];
+    data.forEach((app) =>
+      app.categories.forEach((cat) => arr.push(cat))
+    );
+
+    this.categories = new Set(arr.sort());
   }
 
   private getJSON(): Observable<any> {

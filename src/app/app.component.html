@@ -1,3 +1,11 @@
-<div class="root flex-container">
-<td-app-list></td-app-list>
+<div class="flex-container">
+  <nav class="nav-categories">
+    <td-categories [categories]="categories"></td-categories>
+  </nav>
+  <section class="apps-list">
+    <header>
+      <td-search></td-search>
+    </header>
+    <td-app-list></td-app-list>
+  </section>
 </div>

@@ -1,0 +1,11 @@
+<h2>Categories</h2>
+
+<ul class="menu">
+  <li
+    *ngFor="let cat of categories"
+    (click)="filterBy(cat)"
+    [ngClass]="{ active: selectedCat === cat }"
+  >
+    <a >{{ cat }}</a>
+  </li>
+</ul>
